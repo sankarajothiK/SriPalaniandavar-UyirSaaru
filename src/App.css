@@ -1,0 +1,3813 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Mukta+Malar:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap");
+
+:root {
+  --green: #144033;
+  --green-light: #205c4a;
+  --ink: #10231b;
+  --orange: #ea580c;
+  --gold: #d97706;
+  --cream: #faf8f5;
+  --muted: #3d564b;
+  --line: #e3dcce;
+  --whatsapp: #25d366;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.announcement {
+  height: 38px;
+  background: var(--green);
+  color: #e6f3e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.announcement b {
+  color: #ffcf81;
+  font-weight: 800;
+}
+
+.nav {
+  height: 84px;
+  padding: 0 max(28px, calc((100% - 1240px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250, 248, 245, 0.96);
+  backdrop-filter: blur(15px);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  border-bottom: 1px solid rgba(226, 221, 213, 0.9);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--orange);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  background: white;
+  transition: transform 0.2s;
+}
+
+.brand:hover .brand-logo-img {
+  transform: scale(1.05);
+}
+
+.brand strong {
+  display: block;
+  font: 800 17px "Mukta Malar", sans-serif;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.brand strong.en-brand {
+  font: 800 16px "Manrope", sans-serif;
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.brand-fssai {
+  display: block;
+  font-size: 9.5px;
+  letter-spacing: 0.03em;
+  color: #15803d;
+  font-weight: 700;
+  margin-top: 1.5px;
+  font-family: "Manrope", sans-serif;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+}
+
+nav a, .text-cta {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: color 0.2s;
+}
+
+nav a:hover, .text-cta:hover {
+  color: var(--orange);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.lang-switch, .cart-button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--green);
+  border-radius: 99px;
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: all 0.2s;
+}
+
+.lang-switch:hover, .cart-button:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-button b {
+  background: var(--orange);
+  color: white;
+  border-radius: 50%;
+  min-width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+}
+
+/* HERO & PARALLAX */
+.hero-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 80% 20%, rgba(234, 88, 12, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(20, 64, 51, 0.08) 0%, transparent 50%);
+}
+
+.hero {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 85px 28px 95px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+}
+
+/* Parallax Floating Accents */
+.parallax-bg-accent {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.floating-fruit {
+  position: absolute;
+  font-size: 34px;
+  pointer-events: none;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+  animation: floatSlow 6s ease-in-out infinite alternate;
+  user-select: none;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-16px) rotate(8deg); }
+}
+
+@keyframes floatReverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(14px) rotate(-6deg); }
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.eyebrow.orange {
+  color: var(--orange);
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+/* Base Headings */
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(40px, 5.2vw, 68px);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin: 12px 0 16px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h1.en-headline {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(44px, 5.8vw, 76px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 14px 0 18px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+h1.en-headline em {
+  display: block;
+  color: var(--orange);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.03em;
+  margin-top: 4px;
+}
+
+h1.tamil-headline {
+  font-family: "Mukta Malar", sans-serif;
+  font-size: clamp(34px, 4.2vw, 56px);
+  line-height: 1.32;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+h1 em {
+  display: block;
+  color: var(--orange);
+  font-style: italic;
+}
+
+h1.tamil-headline em {
+  display: block;
+  color: var(--orange);
+  font-style: normal;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(32px, 3.8vw, 48px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+h2.tamil-headline {
+  font-family: "Mukta Malar", sans-serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.3;
+  letter-spacing: 0px;
+  font-weight: 700;
+}
+
+h2 i {
+  display: block;
+  color: var(--orange);
+  font-style: italic;
+}
+
+h2.tamil-headline i {
+  display: block;
+  color: var(--orange);
+  font-style: normal;
+}
+
+.hero-sub {
+  font: 700 18px/1.4 "Playfair Display", serif;
+  color: var(--green);
+  margin-bottom: 8px;
+}
+
+.hero-sub.ta-sub {
+  font: 700 18px/1.4 "Mukta Malar", sans-serif;
+}
+
+.hero-ta {
+  color: var(--muted);
+  font: 600 16px/1.6 "Mukta Malar", sans-serif;
+  max-width: 490px;
+}
+
+.hero-ta.en-ta {
+  font: 500 16px/1.6 "Manrope", sans-serif;
+}
+
+.brand-motto-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(234, 88, 12, 0.1);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  padding: 7px 16px;
+  border-radius: 99px;
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-top: 14px;
+  width: fit-content;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 24px 0 30px;
+}
+
+.primary-cta {
+  background: var(--orange);
+  color: white;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 8px 22px rgba(234, 88, 12, 0.28);
+  transition: transform 0.2s, background 0.2s;
+  border: none;
+}
+
+.primary-cta:hover, .package-bottom button:hover {
+  transform: translateY(-2px);
+  background: #c2410c;
+}
+
+.hero-trust {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero-trust span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-trust svg {
+  width: 16px;
+  height: 16px;
+  color: var(--orange);
+}
+
+.hero-image {
+  position: relative;
+  padding: 12px;
+  background: #e9dfcf;
+  transform: rotate(2deg);
+  border-radius: 4px;
+  box-shadow: 0 15px 35px rgba(20, 64, 51, 0.12);
+  transition: transform 0.3s ease-out;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.08;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.image-sticker {
+  position: absolute;
+  bottom: -25px;
+  left: -22px;
+  width: 130px;
+  height: 130px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  transform: rotate(-9deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-out;
+}
+
+.image-sticker strong {
+  font: 700 22px "Playfair Display", serif;
+  color: #ffcf81;
+}
+
+.image-sticker span {
+  font-size: 10px;
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+/* 6 HEALTH BENEFIT PILLARS (From Official Logo) */
+.pillars-section {
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 32px max(28px, calc((100% - 1240px) / 2));
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 10px;
+  border-radius: 6px;
+  background: #faf8f5;
+  border: 1px solid var(--line);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--orange);
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.12);
+  background: #fff;
+}
+
+.pillar-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.pillar-card strong {
+  font: 700 13px "Mukta Malar", sans-serif;
+  color: var(--green);
+  line-height: 1.25;
+}
+
+.pillar-card strong.en-pillar {
+  font: 700 12px "Manrope", sans-serif;
+}
+
+.pillar-card small {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.pillar-card.custom-box-pillar {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.pillar-card.custom-box-pillar:hover {
+  border-color: #22c55e;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.15);
+  background: #ffffff;
+}
+
+.pillar-card.custom-box-pillar strong {
+  color: #15803d;
+}
+
+/* 3-PILLAR PROMISE SECTION */
+.promise {
+  background: #eee8de;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 100%;
+  padding: 26px max(28px, calc((100% - 1184px) / 2));
+  gap: 36px;
+}
+
+.promise div {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.promise span {
+  grid-row: span 2;
+  color: var(--orange);
+  font: 800 14px "Playfair Display", serif;
+}
+
+.promise strong {
+  font: 700 15px "Mukta Malar", sans-serif;
+  color: var(--ink);
+}
+
+.promise strong.en-strong {
+  font: 700 15px "Manrope", sans-serif;
+}
+
+.promise small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section {
+  max-width: 1240px;
+  padding: 95px 28px;
+  margin: auto;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 38px;
+  gap: 30px;
+}
+
+.section-head > p {
+  max-width: 360px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* 5 PACKAGES GRID */
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1280px) {
+  .package-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .package-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.package-card {
+  padding: 22px 18px 18px;
+  border-top: 4px solid var(--green);
+  background: #fff;
+  min-height: 380px;
+  box-shadow: 0 10px 30px rgba(24, 61, 48, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  cursor: pointer;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(24, 61, 48, 0.12);
+}
+
+.package-card.orange {
+  border-top-color: var(--orange);
+}
+
+.package-card.teal {
+  border-top-color: #0d9488;
+}
+
+.package-card.sage {
+  border-top-color: #83a15d;
+}
+
+.package-card.green {
+  border-top-color: var(--green);
+}
+
+.package-card.rose {
+  border-top-color: #e11d48;
+}
+
+.package-top, .package-bottom, .trio-buy, .cart-summary div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package-icon {
+  font-size: 30px;
+}
+
+.save {
+  background: #edf4ec;
+  color: var(--green);
+  padding: 4px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 2px;
+}
+
+.package-card h3 {
+  font: 700 18px "Mukta Malar", sans-serif;
+  line-height: 1.25;
+  margin: 14px 0 0;
+  color: var(--ink);
+}
+
+.package-card h3.en-h3 {
+  font: 700 17px "Playfair Display", serif;
+}
+
+.english-name {
+  color: var(--green);
+  font: 700 12px "Playfair Display", serif;
+  margin: 4px 0 8px;
+}
+
+.package-desc {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  min-height: 48px;
+  font-weight: 600;
+}
+
+.package-list {
+  background: #f8faf9;
+  border: 1.5px solid #d1fae5;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 12px 0;
+  font-size: 11px;
+  color: #166534;
+  font-weight: 800;
+}
+
+.package-list small {
+  color: #1f2937;
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.55;
+  margin-top: 5px;
+}
+
+.view-details-tag {
+  color: var(--orange);
+  font-size: 11.5px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.package-view-cta-btn {
+  background: var(--green);
+  color: white;
+  padding: 9px 16px;
+  border-radius: 4px;
+  font: 700 12px "Mukta Malar", "Manrope", sans-serif;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.package-card:hover .package-view-cta-btn {
+  background: var(--orange);
+  transform: translateX(2px);
+}
+
+.package-bottom {
+  margin-top: auto;
+}
+
+.package-bottom > div b, .trio-buy b {
+  font: 700 22px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+del {
+  color: #8c978f;
+  font-size: 11px;
+  margin-left: 5px;
+}
+
+.package-bottom small, .trio-buy small {
+  color: var(--muted);
+  font-size: 11px;
+  margin-left: 3px;
+  font-weight: 700;
+}
+
+.package-bottom button, .trio-buy button {
+  border: 0;
+  background: var(--green);
+  color: white;
+  padding: 10px 14px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 3px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+/* PACKAGE DETAIL MODAL (TWO OPTIONS: FULL ROUTINE OR INDIVIDUAL JUICES) */
+.package-detail-overlay {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.package-detail-modal {
+  width: min(840px, 100%);
+  max-height: 90vh;
+  background: var(--cream);
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 24px 70px rgba(16, 35, 27, 0.35);
+  border-radius: 8px;
+  overflow-y: auto;
+  animation: pop 0.25s ease-out;
+  border-top: 6px solid var(--green);
+}
+
+.package-detail-modal.orange { border-color: var(--orange); }
+.package-detail-modal.teal { border-color: #0d9488; }
+.package-detail-modal.sage { border-color: #83a15d; }
+.package-detail-modal.green { border-color: var(--green); }
+
+.modal-header-banner {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+}
+
+.modal-pkg-icon {
+  font-size: 42px;
+  background: white;
+  width: 68px;
+  height: 68px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--line);
+}
+
+.modal-header-text h2 {
+  font-size: 26px;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+
+.modal-header-text p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* OPTION 1: FULL BOTTLE ROUTINE BOX */
+.modal-option-box {
+  background: #ffffff;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 20px rgba(20, 64, 51, 0.08);
+}
+
+.modal-option-box.orange { border-color: var(--orange); }
+.modal-option-box.teal { border-color: #0d9488; }
+.modal-option-box.sage { border-color: #83a15d; }
+.modal-option-box.green { border-color: var(--green); }
+
+.modal-option-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.modal-option-tag {
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.modal-option-title {
+  font: 800 17px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  margin: 0;
+}
+
+.modal-option-title.en-opt-title {
+  font: 800 16px "Manrope", sans-serif;
+}
+
+.modal-option-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.modal-option-price-row b {
+  font: 700 24px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+.modal-pkg-btn {
+  background: var(--green);
+  color: white;
+  border: 0;
+  padding: 14px 22px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modal-pkg-btn:hover {
+  background: #0d2e24;
+  transform: translateY(-2px);
+}
+
+/* OPTION 2: INDIVIDUAL JUICE CARDS */
+.section-divider-title {
+  font: 800 15px "Mukta Malar", sans-serif;
+  color: var(--green);
+  margin: 0 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-divider-title.en-heading {
+  font: 800 15px "Manrope", sans-serif;
+}
+
+.days-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.day-detail-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.day-detail-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(24, 61, 48, 0.08);
+}
+
+.day-detail-img {
+  width: 62px;
+  height: 62px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.day-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.day-detail-title {
+  font: 700 13px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.day-detail-title.en-title {
+  font: 700 13px "Manrope", sans-serif;
+}
+
+.day-detail-benefit {
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.single-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.single-item-bottom b {
+  font: 700 14px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+.add-single-bottle-btn {
+  background: #faf8f5;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.add-single-bottle-btn:hover {
+  background: var(--orange);
+  color: white;
+}
+
+.modal-perks-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  background: #ede6da;
+  padding: 14px;
+  border-radius: 6px;
+  margin-bottom: 22px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.modal-perks-row div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-whatsapp-btn {
+  background: var(--whatsapp);
+  color: white;
+  border: 0;
+  padding: 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.modal-whatsapp-btn:hover {
+  background: #1eb956;
+}
+
+.feature-band {
+  background: var(--green);
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.feature-image {
+  min-height: 420px;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.feature-copy {
+  padding: 65px max(28px, calc((100vw - 1240px) / 2)) 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.feature-copy h2 {
+  font-size: 52px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.feature-copy h2 i {
+  color: #ffcf81;
+}
+
+.feature-copy > p {
+  color: #d1e2d7;
+  max-width: 400px;
+  line-height: 1.7;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.trio-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font: 700 14px "Mukta Malar", sans-serif;
+  margin: 22px 0 28px;
+}
+
+.trio-items.en-trio {
+  font: 700 14px "Manrope", sans-serif;
+}
+
+.trio-buy {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 18px;
+  max-width: 390px;
+}
+
+.trio-buy b {
+  color: #ffcf81;
+}
+
+.trio-buy button {
+  background: var(--orange);
+}
+
+.trio-buy button:hover {
+  background: #c2410c;
+}
+
+/* CUSTOM PACKAGE BUILDER SECTION */
+.custom-builder-section {
+  background: #f4ede2;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.builder-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.builder-panel {
+  background: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(24, 61, 48, 0.05);
+  border: 1px solid var(--line);
+}
+
+.builder-step-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 16px "Mukta Malar", sans-serif;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.builder-step-title.en-step {
+  font: 700 15px "Manrope", sans-serif;
+}
+
+.builder-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font: 800 12px "Manrope", sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+.pill-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.option-pill {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  background: #faf8f5;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.option-pill.active {
+  background: var(--green);
+  color: white;
+  border-color: var(--green);
+  box-shadow: 0 4px 12px rgba(20, 64, 51, 0.2);
+}
+
+.days-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.day-box {
+  background: #faf8f5;
+  border: 1px solid var(--line);
+  padding: 8px 4px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.day-box:hover, .day-box.active {
+  border-color: var(--orange);
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.15);
+}
+
+.day-box.active {
+  border-width: 2px;
+}
+
+.day-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(227, 220, 206, 0.8);
+}
+
+.day-name-ta {
+  font: 700 11px "Mukta Malar", sans-serif;
+  color: var(--green);
+}
+
+.day-name-en {
+  font-size: 10px;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.day-juice-name {
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.picker-juices-list {
+  background: #faf8f5;
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.picker-juice-btn {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 6px 4px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.picker-juice-btn:hover, .picker-juice-btn.selected {
+  border-color: var(--orange);
+  background: #fff6ee;
+}
+
+.picker-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.builder-summary-card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 6px;
+  border-top: 4px solid var(--orange);
+  box-shadow: 0 10px 30px rgba(24, 61, 48, 0.08);
+  position: sticky;
+  top: 100px;
+}
+
+.builder-summary-card h3 {
+  font: 700 22px "Playfair Display", serif;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.builder-summary-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.summary-rows {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.summary-row b {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.summary-price-big {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.summary-price-big b {
+  font: 700 28px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+.summary-price-big del {
+  color: #8c978f;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+/* 16 FRESH MENU & PHOTO JUICE CARDS */
+.menu-section {
+  padding-bottom: 110px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.juice-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.juice-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(24, 61, 48, 0.1);
+}
+
+.juice-image-wrap {
+  position: relative;
+  height: 155px;
+  overflow: hidden;
+  background: #ede6da;
+}
+
+.juice-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.juice-card:hover .juice-image-wrap img {
+  transform: scale(1.08);
+}
+
+.juice-fruit-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.juice-info {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.juice-benefit-pill {
+  color: var(--orange);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.juice-info h3 {
+  font: 700 16px "Mukta Malar", sans-serif;
+  margin: 6px 0 0;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.juice-info h3.en-title {
+  font: 700 15px "Playfair Display", serif;
+}
+
+.juice-info small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin: 4px 0 12px;
+  font-weight: 700;
+}
+
+.juice-info > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  margin-top: auto;
+}
+
+.juice-info b {
+  font: 700 19px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+.juice-info button {
+  border: 1px solid var(--orange);
+  background: white;
+  color: var(--orange);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.juice-info button:hover {
+  background: var(--orange);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* DELIVERY SECTION */
+.delivery-section {
+  background: #e9dfcf;
+  padding: 75px max(28px, calc((100% - 1184px) / 2));
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.delivery-section h2 {
+  font-size: 48px;
+}
+
+.delivery-section p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 280px;
+  margin-top: 15px;
+  font-weight: 600;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.slots div {
+  background: #faf8f5;
+  padding: 22px 16px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(227, 220, 206, 0.7);
+}
+
+.slots svg {
+  color: var(--orange);
+  width: 22px;
+  height: 22px;
+}
+
+.slots b {
+  font: 700 15px "Mukta Malar", sans-serif;
+  color: var(--ink);
+}
+
+.slots b.en-slot {
+  font: 700 14px "Manrope", sans-serif;
+}
+
+.slots span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* FOOTER */
+footer {
+  background: #144033;
+  color: #fff;
+  padding: 44px max(28px, calc((100% - 1184px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+footer .brand {
+  color: #fff;
+}
+
+footer p, footer > b {
+  color: #b3cbbf;
+  font-size: 11px;
+  margin: 0;
+}
+
+footer > b {
+  font-weight: 600;
+}
+
+/* Modal and Drawer Overlays */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(16, 35, 27, 0.55);
+  display: flex;
+  justify-content: flex-end;
+  backdrop-filter: blur(4px);
+}
+
+.cart-drawer {
+  background: var(--cream);
+  width: min(490px, 100%);
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: slide 0.25s ease-out;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.drawer-head h2 {
+  font-size: 30px;
+  margin-top: 4px;
+  color: var(--ink);
+}
+
+.drawer-head h2 span {
+  color: var(--orange);
+  font: 700 14px "Manrope", sans-serif;
+}
+
+.drawer-head button, .form-close {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 20px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-head button:hover, .form-close:hover {
+  color: var(--ink);
+}
+
+.cart-items {
+  flex: 1 1;
+  overflow-y: auto;
+  padding: 15px 0;
+}
+
+.cart-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-item-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.cart-row b, .cart-row strong {
+  font-size: 13px;
+}
+
+.cart-row b {
+  font-family: "Mukta Malar", sans-serif;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.cart-row b.en-cart-b {
+  font-family: "Manrope", sans-serif;
+}
+
+.cart-row small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  padding: 3px 6px;
+  background: white;
+  border-radius: 4px;
+}
+
+.qty button {
+  border: 0;
+  background: none;
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  padding: 2px;
+}
+
+.cart-row > strong {
+  font: 700 15px "Playfair Display", serif;
+  min-width: 40px;
+  text-align: right;
+  color: var(--ink);
+}
+
+.cart-delete-btn {
+  border: none;
+  background: none;
+  color: #9ca3af;
+  padding: 6px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.cart-delete-btn:hover {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.cart-summary {
+  padding-top: 15px;
+}
+
+.cart-summary div {
+  padding: 6px 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cart-summary .free {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.cart-summary .total {
+  border-top: 1px solid var(--line);
+  margin-top: 6px;
+  padding: 16px 0;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.cart-summary .total b {
+  font: 700 24px "Playfair Display", serif;
+}
+
+.checkout-btn, .whatsapp-btn {
+  width: 100%;
+  border: 0;
+  background: var(--orange);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.checkout-btn:hover {
+  background: #c2410c;
+}
+
+.order-closed-notice {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-closed-badge {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border: 1.5px solid #fdba74;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.08);
+}
+
+.order-closed-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.order-closed-badge strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  color: #9a3412;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.order-closed-badge p {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #c2410c;
+  margin: 0;
+  font-weight: 500;
+}
+
+.order-closed-btn {
+  background: #94a3b8 !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  font-size: 13px !important;
+  opacity: 0.95;
+}
+
+.cod-note, .form-foot {
+  color: var(--muted);
+  text-align: center;
+  display: block;
+  font-size: 11px;
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.empty-cart {
+  text-align: center;
+  margin: auto;
+  color: var(--muted);
+  padding: 40px 0;
+}
+
+.empty-cart span {
+  font-size: 45px;
+}
+
+.empty-cart h3 {
+  font: 700 20px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  margin: 12px 0 3px;
+}
+
+.order-overlay {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.order-form {
+  width: min(530px, 100%);
+  background: var(--cream);
+  padding: 34px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(16, 35, 27, 0.25);
+  border-radius: 6px;
+  animation: pop 0.2s ease-out;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.order-form h2 {
+  font-size: 32px;
+  margin: 6px 0 2px;
+  color: var(--ink);
+}
+
+.order-form > p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.form-close {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+}
+
+.order-form label {
+  display: block;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.order-form input, .order-form textarea, .order-form select {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 12px;
+  margin-top: 6px;
+  font: 600 13px "Manrope", sans-serif;
+  color: var(--ink);
+  outline: none;
+  border-radius: 4px;
+}
+
+.order-form textarea {
+  resize: vertical;
+  min-height: 65px;
+}
+
+.order-form input:focus, .order-form textarea:focus, .order-form select:focus {
+  border-color: var(--orange);
+}
+
+/* Sugar Preference Group */
+.sugar-preference-group {
+  margin-bottom: 16px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 6px;
+}
+
+.sugar-group-label {
+  display: block;
+  color: var(--green) !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  margin-bottom: 8px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sugar-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.sugar-radio-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  background: #faf8f5 !important;
+  border: 1.5px solid var(--line) !important;
+  padding: 10px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  margin-bottom: 0 !important;
+}
+
+.sugar-radio-card:hover {
+  border-color: var(--orange) !important;
+  background: #fff !important;
+}
+
+.sugar-radio-card input[type="radio"] {
+  width: auto !important;
+  margin-top: 2px !important;
+  cursor: pointer;
+  accent-color: var(--orange);
+}
+
+.sugar-card-content {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.sugar-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.sugar-card-content strong {
+  display: block;
+  font: 700 12px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.sugar-card-content small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.3;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.whatsapp-btn {
+  background: var(--whatsapp);
+  margin-top: 6px;
+}
+
+.whatsapp-btn:hover {
+  background: #1eb956;
+}
+
+/* DIGITAL BILL / INVOICE PREVIEW MODAL */
+.bill-overlay {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.bill-modal-card {
+  width: min(540px, 100%);
+  background: #ffffff;
+  padding: 28px 24px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(16, 35, 27, 0.35);
+  border-radius: 8px;
+  border-top: 6px solid var(--green);
+  animation: pop 0.2s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.bill-header {
+  text-align: center;
+  border-bottom: 2px dashed var(--line);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+}
+
+.bill-brand-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  margin-bottom: 8px;
+}
+
+.bill-header h3 {
+  font: 800 18px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+
+.bill-header small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  display: block;
+}
+
+.bill-badge-pill {
+  display: inline-block;
+  background: #e8f5e9;
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bill-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: #faf8f5;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 11px;
+  margin-bottom: 16px;
+}
+
+.bill-meta-grid div {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.bill-meta-grid div b {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.bill-items-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+.bill-items-table th {
+  border-bottom: 1px solid var(--ink);
+  padding: 8px 4px;
+  text-align: left;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.bill-items-table td {
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.bill-items-table td.num {
+  text-align: right;
+  font-weight: 700;
+}
+
+.bill-totals {
+  border-top: 2px dashed var(--line);
+  padding-top: 10px;
+  margin-bottom: 18px;
+}
+
+.bill-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 3px 0;
+  font-weight: 600;
+}
+
+.bill-total-row.grand {
+  border-top: 1px solid var(--line);
+  padding-top: 8px;
+  margin-top: 6px;
+  font-size: 15px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.bill-total-row.grand b {
+  color: var(--orange);
+  font: 700 22px "Playfair Display", serif;
+}
+
+.bill-send-whatsapp-btn {
+  width: 100%;
+  background: var(--whatsapp);
+  color: white;
+  border: 0;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: 800;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.bill-send-whatsapp-btn:hover {
+  background: #1eb956;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .picker-juices-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  nav {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 50px;
+  }
+  .hero-image {
+    max-width: 580px;
+    margin: auto;
+    width: 100%;
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .package-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .days-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .modal-option-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .modal-pkg-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .builder-layout {
+    grid-template-columns: 1fr;
+  }
+  .days-schedule-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .picker-juices-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .feature-copy {
+    padding: 50px 24px;
+  }
+  .delivery-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .slots {
+    max-width: 700px;
+  }
+  .feature-image {
+    min-height: 300px;
+  }
+}
+
+/* Enhanced Fluid & Mobile Responsive Styles (Mobile < 768px & < 480px) */
+@media (max-width: 768px) {
+  html {
+    font-size: 14.5px;
+  }
+  
+  /* Prevent iOS zoom on input focus */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  .announcement {
+    height: auto;
+    min-height: 32px;
+    padding: 6px 12px;
+    gap: 8px;
+    font-size: 10px;
+    justify-content: center;
+  }
+  .announcement span {
+    display: none;
+  }
+  .announcement b {
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+
+  .nav {
+    height: 66px;
+    padding: 0 12px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand-logo-img {
+    width: 44px;
+    height: 44px;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.2);
+  }
+  .brand strong {
+    font-size: 14px;
+    line-height: 1.15;
+  }
+  .brand small {
+    font-size: 8.5px;
+    letter-spacing: 0.04em;
+  }
+  .brand-fssai {
+    font-size: 8px;
+    letter-spacing: 0.02em;
+    margin-top: 1px;
+    white-space: nowrap;
+  }
+  .nav-actions {
+    gap: 6px;
+  }
+  .lang-switch, .cart-button {
+    padding: 7px 12px;
+    font-size: 11.5px;
+    min-height: 38px;
+  }
+  .cart-button span {
+    display: none;
+  }
+
+  .hero {
+    padding: 32px 14px 44px;
+    gap: 28px;
+  }
+  .hero-copy {
+    text-align: center;
+    align-items: center;
+  }
+  .eyebrow {
+    justify-content: center;
+    font-size: 10px;
+  }
+  h1.tamil-headline {
+    font-size: clamp(25px, 6.8vw, 36px);
+    line-height: 1.25;
+  }
+  h1.en-headline {
+    font-size: clamp(28px, 7.5vw, 42px);
+    line-height: 1.15;
+  }
+  .hero-sub {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .hero-ta {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .brand-motto-badge {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 360px;
+    gap: 10px;
+    margin: 8px 0 16px;
+  }
+  .primary-cta, .text-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-height: 48px;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  .text-cta {
+    border: 1.5px solid var(--green);
+    border-radius: 99px;
+    background: #ffffff;
+  }
+  .hero-trust {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+    font-size: 11.5px;
+  }
+  .hero-image {
+    max-width: 320px;
+    margin: 8px auto 0;
+  }
+  .image-sticker {
+    right: -6px;
+    top: -12px;
+    padding: 8px 12px;
+    transform: rotate(-6deg) scale(0.88) !important;
+  }
+
+  .pillars-section {
+    padding: 0 12px;
+  }
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .pillar-card {
+    padding: 12px 10px;
+    min-height: 100px;
+    border-radius: 10px;
+  }
+  .pillar-card.custom-box-pillar {
+    grid-column: span 2;
+    background: #f0fdf4;
+    border: 1.5px dashed #22c55e;
+  }
+  .pillar-card strong {
+    font-size: 12.5px;
+    line-height: 1.25;
+  }
+  .pillar-card small {
+    font-size: 9.5px;
+    line-height: 1.3;
+  }
+
+  .promise {
+    grid-template-columns: 1fr;
+    padding: 16px 14px;
+    gap: 12px;
+    margin: 24px 12px;
+  }
+  .promise div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+  }
+  .promise span {
+    font-size: 26px;
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+  .promise strong {
+    font-size: 13.5px;
+    display: block;
+  }
+  .promise small {
+    font-size: 11.5px;
+  }
+
+  .section {
+    padding: 45px 12px;
+  }
+  .section-head {
+    display: block;
+    margin-bottom: 24px;
+  }
+  .section-head h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  .section-head > p {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+
+  .package-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .package-card {
+    padding: 18px 14px;
+    border-radius: 12px;
+    min-height: 0;
+  }
+  .package-card h3 {
+    font-size: 18px;
+  }
+  .package-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .package-view-cta-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+    white-space: nowrap;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .delivery-section {
+    padding: 40px 12px;
+    gap: 24px;
+  }
+  .delivery-section h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+  .delivery-section p {
+    font-size: 13px;
+  }
+  .slots {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)) !important;
+    gap: 8px;
+  }
+  .slots div {
+    padding: 12px 10px;
+    min-height: 85px;
+    border-radius: 8px;
+  }
+  .slots div b {
+    font-size: 12px;
+  }
+  .slots div span {
+    font-size: 10px;
+  }
+
+  /* Cart Drawer Mobile */
+  .cart-drawer {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 18px 14px calc(18px + env(safe-area-inset-bottom, 0px));
+    height: 100dvh;
+    border-radius: 0;
+  }
+  .drawer-head {
+    padding-bottom: 12px;
+  }
+  .drawer-head h2 {
+    font-size: 22px;
+  }
+  .cart-row {
+    grid-template-columns: 40px 1fr auto auto;
+    gap: 6px;
+    padding: 10px 0;
+  }
+  .cart-item-img {
+    width: 40px;
+    height: 40px;
+  }
+  .cart-row b {
+    font-size: 12.5px;
+  }
+  .cart-row small {
+    font-size: 10px;
+  }
+  .qty {
+    gap: 2px;
+    padding: 2px 4px;
+  }
+  .qty button {
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+  }
+  .cart-row > strong {
+    font-size: 13px;
+    min-width: 32px;
+  }
+  .cart-delete-btn {
+    padding: 4px;
+  }
+  .cart-summary {
+    padding-top: 10px;
+  }
+  .cart-summary .total {
+    padding: 10px 0;
+  }
+  .cart-summary .total b {
+    font-size: 20px;
+  }
+  .checkout-btn {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    min-height: 48px;
+  }
+  .order-closed-badge {
+    padding: 11px 13px;
+    gap: 10px;
+  }
+  .order-closed-badge strong {
+    font-size: 12px;
+  }
+  .order-closed-badge p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .order-closed-btn {
+    font-size: 12px !important;
+    padding: 12px !important;
+    min-height: 44px;
+  }
+
+  /* Order Form Modal Mobile */
+  .order-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+  .order-form {
+    width: 100%;
+    padding: 20px 14px calc(20px + env(safe-area-inset-bottom, 0px));
+    border-radius: 16px 16px 0 0;
+    max-height: 90dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .order-form h2 {
+    font-size: 22px;
+  }
+  .order-form > p {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .order-form label {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  .order-form input, .order-form textarea, .order-form select {
+    padding: 11px 12px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+  .sugar-preference-group {
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+  .sugar-options-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .sugar-radio-card {
+    padding: 8px 10px !important;
+  }
+  .sugar-card-content strong {
+    font-size: 12px;
+  }
+  .sugar-card-content small {
+    font-size: 9.5px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .whatsapp-btn {
+    padding: 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    min-height: 48px;
+  }
+  .form-foot {
+    font-size: 10px;
+    margin-top: 8px;
+  }
+
+  /* Digital Bill Preview Modal Mobile */
+  .bill-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+  .bill-modal-card {
+    width: 100%;
+    padding: 18px 12px calc(18px + env(safe-area-inset-bottom, 0px));
+    border-radius: 16px 16px 0 0;
+    max-height: 90dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bill-brand-img {
+    width: 44px;
+    height: 44px;
+  }
+  .bill-header h3 {
+    font-size: 16px;
+  }
+  .bill-header small {
+    font-size: 10px;
+  }
+  .bill-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+  .bill-items-table {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+  .bill-items-table th, .bill-items-table td {
+    padding: 6px 2px;
+  }
+  .bill-total-row {
+    font-size: 11.5px;
+  }
+  .bill-total-row.grand {
+    font-size: 13.5px;
+  }
+  .bill-total-row.grand b {
+    font-size: 18px;
+  }
+  .bill-send-whatsapp-btn {
+    padding: 14px;
+    font-size: 13.5px;
+    border-radius: 8px;
+    min-height: 48px;
+  }
+}
+
+/* ==========================================================================
+   DEDICATED FULL-PAGE PACKAGE VIEW
+   ========================================================================== */
+.package-page-view {
+  background: var(--cream);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.pkg-breadcrumb-bar {
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+  padding: 14px max(28px, calc((100% - 1184px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 76px;
+  z-index: 30;
+  backdrop-filter: blur(10px);
+}
+
+.pkg-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f3;
+  color: var(--green);
+  border: 1px solid #d1e2da;
+  padding: 8px 16px;
+  border-radius: 99px;
+  font: 700 13px "Mukta Malar", "Manrope", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.pkg-back-btn:hover {
+  background: var(--green);
+  color: #fff;
+  border-color: var(--green);
+  transform: translateX(-3px);
+}
+
+.pkg-breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.pkg-breadcrumb-trail span.active {
+  color: var(--orange);
+  font-weight: 800;
+}
+
+/* Package Hero Banner */
+.pkg-hero-section {
+  padding: 40px max(28px, calc((100% - 1184px) / 2));
+  background: linear-gradient(180deg, #ffffff 0%, rgba(247, 244, 237, 0.7) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.pkg-hero-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.pkg-hero-layout.full-width {
+  grid-template-columns: 1fr;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pkg-hero-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pkg-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #e8f5e9;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 99px;
+  width: fit-content;
+  border: 1px solid #c8e6c9;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pkg-hero-title {
+  font: 800 36px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.pkg-hero-title.en-title {
+  font-family: "Playfair Display", serif;
+}
+
+.pkg-hero-en-sub {
+  font: 700 15px "Manrope", sans-serif;
+  color: var(--muted);
+  margin-top: -6px;
+}
+
+.pkg-hero-desc {
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.pkg-hero-long-desc {
+  background: #ffffff;
+  border-left: 4px solid var(--green);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #2c4a3e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.pkg-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.pkg-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pkg-highlight-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Package Hero Order Action Box */
+.pkg-order-card {
+  background: #ffffff;
+  border: 2px solid var(--orange);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 15px 45px rgba(224, 90, 43, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: sticky;
+  top: 140px;
+}
+
+.pkg-order-card-tag {
+  background: #fff3ed;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  width: fit-content;
+  text-transform: uppercase;
+}
+
+.pkg-order-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pkg-order-price-row b {
+  font: 800 36px "Playfair Display", serif;
+  color: var(--orange);
+}
+
+.pkg-order-price-row del {
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.pkg-order-save-badge {
+  background: #e8f5e9;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.pkg-order-specs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.pkg-order-specs div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.pkg-order-main-btn {
+  background: var(--orange);
+  color: #fff;
+  border: 0;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 800;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 6px 20px rgba(224, 90, 43, 0.35);
+}
+
+.pkg-order-main-btn:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+}
+
+.pkg-order-whatsapp-btn {
+  background: var(--whatsapp);
+  color: #fff;
+  border: 0;
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.pkg-order-whatsapp-btn:hover {
+  background: #1eb956;
+}
+
+/* Detailed Juices Section */
+.pkg-juices-container {
+  padding: 60px max(28px, calc((100% - 1184px) / 2));
+}
+
+.pkg-section-title-wrap {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.pkg-section-title-wrap h2 {
+  font: 800 32px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  margin: 8px 0 12px;
+}
+
+.pkg-section-title-wrap h2.en-title {
+  font-family: "Playfair Display", serif;
+}
+
+.pkg-section-title-wrap p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Detailed Juice Card */
+.pkg-juice-detail-card {
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.pkg-juice-detail-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--orange);
+}
+
+.pkg-juice-img-box {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.pkg-juice-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pkg-juice-detail-card:hover .pkg-juice-img-box img {
+  transform: scale(1.06);
+}
+
+.pkg-juice-vol-tag {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(20, 64, 51, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.pkg-juice-emoji-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  font-size: 18px;
+  padding: 4px 6px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pkg-juice-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pkg-juice-header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pkg-juice-num-badge {
+  background: #fff3ed;
+  color: var(--orange);
+  font: 800 13px "Manrope", sans-serif;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #fed7aa;
+}
+
+.pkg-juice-name {
+  font: 800 21px "Mukta Malar", sans-serif;
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pkg-juice-name.en-name {
+  font-family: "Playfair Display", serif;
+  font-size: 19px;
+}
+
+.pkg-juice-pure-pill {
+  background: #e8f5e9;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 99px;
+  border: 1px solid #c8e6c9;
+  margin-left: auto;
+}
+
+.pkg-juice-en-title {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: -4px;
+}
+
+/* HIGH-VISIBILITY INCLUDED COMPONENTS & INGREDIENTS BOX */
+.pkg-component-box {
+  background: #f0fdf4;
+  border: 1.5px solid #86efac;
+  border-radius: 8px;
+  padding: 11px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.06);
+}
+
+.pkg-comp-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #166534;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pkg-comp-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #14532d;
+  line-height: 1.45;
+}
+
+/* Primary Action Box */
+.pkg-action-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pkg-action-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #92400e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.pkg-action-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #78350f;
+}
+
+/* Clinical Mechanism Box */
+.pkg-mechanism-box {
+  background: #ffffff;
+  border-left: 3.5px solid var(--orange);
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+.pkg-mechanism-box b {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+/* Individual Juice Buy Bar on Package Page */
+.pkg-juice-buy-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 4px;
+}
+
+.pkg-juice-price-info {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.pkg-juice-price-info b {
+  font: 700 24px "Playfair Display", serif;
+  color: var(--ink);
+}
+
+.pkg-juice-price-info small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.pkg-juice-buy-btn {
+  background: var(--green);
+  color: #ffffff;
+  border: 0;
+  padding: 10px 18px;
+  font: 700 13px "Mukta Malar", "Manrope", sans-serif;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(20, 64, 51, 0.15);
+}
+
+.pkg-juice-buy-btn:hover {
+  background: var(--orange);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(234, 88, 12, 0.25);
+}
+
+.pkg-juice-routine-badge-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f0fdf4;
+  border: 1.5px dashed #86efac;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-top: 4px;
+}
+
+/* Vegetable Variant Option Selector */
+.veg-variant-selector {
+  margin: 12px 0 8px;
+  padding: 12px 14px;
+  background: #f0fdf4;
+  border: 1.5px dashed #86efac;
+  border-radius: 12px;
+}
+
+.veg-variant-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: #166534;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.veg-variant-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.veg-chip {
+  flex: 1;
+  min-width: 85px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1.5px solid #bbf7d0;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.veg-chip:hover {
+  border-color: var(--green);
+  background: #f0fdf4;
+}
+
+.veg-chip.active {
+  background: var(--green);
+  color: #ffffff;
+  border-color: var(--green);
+  box-shadow: 0 2px 8px rgba(20, 64, 51, 0.25);
+}
+
+.pkg-juice-routine-tag {
+  color: #166534;
+  font: 700 13px "Mukta Malar", "Manrope", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Routine Timeline Section */
+.pkg-routine-timeline-section {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 34px;
+  margin: 40px 0;
+}
+
+.pkg-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pkg-timeline-card {
+  background: #faf8f5;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pkg-timeline-step-num {
+  font: 800 16px "Playfair Display", serif;
+  color: var(--orange);
+}
+
+.pkg-timeline-card h4 {
+  font: 700 15px "Mukta Malar", "Manrope", sans-serif;
+  color: var(--ink);
+  margin: 0;
+}
+
+.pkg-timeline-card p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Switcher to Other Packages */
+.pkg-other-packages-section {
+  margin-top: 50px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+
+.pkg-other-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pkg-other-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pkg-other-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.pkg-other-card strong {
+  font: 700 16px "Mukta Malar", "Manrope", sans-serif;
+  color: var(--ink);
+}
+
+.pkg-other-card small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.pkg-other-card b {
+  color: var(--orange);
+  font-size: 15px;
+}
+
+/* Responsive Styles for Package Detail Page */
+@media (max-width: 900px) {
+  .pkg-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .pkg-order-card {
+    position: static;
+  }
+  .pkg-juice-detail-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pkg-juice-img-box {
+    height: 200px;
+  }
+  .pkg-timeline-grid {
+    grid-template-columns: 1fr;
+  }
+  .pkg-other-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pkg-breadcrumb-bar {
+    padding: 10px 14px;
+    top: 64px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .pkg-back-btn {
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+  .pkg-breadcrumb-trail {
+    font-size: 11px;
+  }
+  .pkg-hero-section {
+    padding: 22px 14px;
+  }
+  .pkg-hero-title {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+  .pkg-highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .pkg-highlight-item {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  .pkg-juices-container {
+    padding: 26px 14px;
+  }
+  .pkg-section-title-wrap {
+    margin-bottom: 24px;
+  }
+  .pkg-section-title-wrap h2 {
+    font-size: 22px;
+  }
+  .pkg-section-title-wrap p {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .pkg-juice-detail-card {
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+  .pkg-juice-img-box {
+    height: 175px;
+    border-radius: 8px;
+  }
+  .pkg-juice-header-row {
+    gap: 6px;
+  }
+  .pkg-juice-name {
+    font-size: 17px;
+  }
+  .pkg-component-box {
+    padding: 9px 12px;
+  }
+  .pkg-comp-label {
+    font-size: 10.5px;
+  }
+  .pkg-comp-val {
+    font-size: 12.5px;
+    line-height: 1.4;
+  }
+  .pkg-routine-timeline-section {
+    padding: 18px 14px;
+  }
+  .veg-variant-selector {
+    padding: 10px 12px;
+    margin: 10px 0 6px;
+  }
+  .veg-variant-label {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .veg-chip {
+    padding: 7px 10px;
+    font-size: 11px;
+    min-width: 75px;
+  }
+  .pkg-juice-buy-bar {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .pkg-juice-price-info b {
+    font-size: 20px;
+  }
+  .pkg-juice-price-info small {
+    font-size: 10.5px;
+  }
+  .pkg-juice-buy-btn {
+    padding: 8px 14px;
+    font-size: 12.5px;
+    white-space: nowrap;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pkg-juice-buy-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .pkg-juice-buy-btn {
+    justify-content: center;
+    width: 100%;
+    min-height: 42px;
+  }
+}
+
+/* ==========================================================================
+   MOBILE FLOATING STICKY BOTTOM CART BAR
+   ========================================================================== */
+.mobile-sticky-cart-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-cart-bar {
+    display: flex;
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    left: 12px;
+    right: 12px;
+    z-index: 45;
+    background: #144033;
+    color: #ffffff;
+    border-radius: 14px;
+    padding: 10px 14px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 12px 35px rgba(20, 64, 51, 0.45), 0 3px 8px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    cursor: pointer;
+    animation: cartBarSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.2s ease, background 0.2s;
+  }
+
+  .mobile-sticky-cart-bar:active {
+    transform: scale(0.98);
+  }
+
+  .sticky-cart-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sticky-cart-badge {
+    background: rgba(255, 255, 255, 0.18);
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 800;
+    font-size: 12px;
+    color: #ffffff;
+  }
+
+  .sticky-cart-price b {
+    display: block;
+    font-size: 16px;
+    font-family: "Playfair Display", serif;
+    color: #ffcf81;
+    line-height: 1.1;
+  }
+
+  .sticky-cart-price small {
+    font-size: 9.5px;
+    color: rgba(255, 255, 255, 0.85);
+    display: block;
+  }
+
+  .sticky-cart-action-btn {
+    background: var(--orange);
+    color: white;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font: 800 12.5px "Mukta Malar", "Manrope", sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
+    cursor: pointer;
+  }
+}
+
+@keyframes cartBarSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE SITE FOOTER
+   ========================================================================== */
+.site-footer {
+  background: var(--green);
+  color: #e6f3e5;
+  padding: 50px max(24px, calc((100% - 1240px) / 2)) 70px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-logo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--orange);
+  background: #ffffff;
+}
+
+.footer-brand-title {
+  font: 800 18px "Mukta Malar", sans-serif;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.footer-motto {
+  font-size: 12px;
+  color: #ffcf81;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.footer-fssai {
+  font-size: 11px;
+  color: #86efac;
+  font-weight: 700;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.footer-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.footer-col h4 {
+  color: #ffcf81;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 14px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.footer-links a {
+  color: #e6f3e5;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.footer-links a:hover {
+  color: #ffcf81;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #e6f3e5;
+  font-size: 13px;
+  margin-bottom: 12px;
+  line-height: 1.45;
+}
+
+.footer-contact-item a {
+  color: #ffcf81;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 36px 16px 100px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+}
