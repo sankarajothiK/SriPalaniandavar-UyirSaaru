@@ -1532,22 +1532,6 @@ ${itemRows}
                     <ShoppingBag size={18} /> {label("முழு 7 பாட்டில்கள் தொகுப்பை ஆர்டர் செய்க", "Order Complete Routine Box")}
                   </button>
 
-                  <button
-                    type="button"
-                    className="pkg-order-whatsapp-btn"
-                    onClick={() => {
-                      const vegLabelTa = selectedVegOption === "carrot" ? "கேரட்" : selectedVegOption === "beetroot" ? "பீட்ரூட்" : "வெள்ளரி";
-                      const vegLabelEn = selectedVegOption === "carrot" ? "Carrot" : selectedVegOption === "beetroot" ? "Beetroot" : "Cucumber";
-                      const txt = copy
-                        ? `வணக்கம் ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு!\n\nநான் "${selectedPackage.ta}" முழு தொகுப்பை (300 மி.லி · ₹${selectedPackage.price} · நாள் 6 காய்கறி: ${vegLabelTa}) ஆர்டர் / விசாரிக்க விரும்புகிறேன்.\n\n🌿 *ஆரோக்கிய நன்மை குறிப்பு:*\nதினமும் காலை 9:00 AM-க்கு முன் இந்த 7 ஜூஸ்களை 7 வாரங்கள் குடித்து வந்தால், அசிடிட்டி மற்றும் உடல் எடை குறையும். மேலும் ரத்த அழுத்தம் மற்றும் கொலஸ்ட்ரால் சீராகி அதிகபட்ச நன்மைகள் கிடைக்கும்.\n\nதயவுசெய்து டெலிவரி விவரங்களை அனுப்பவும்.`
-                        : `Hello Sri Palani Andavar Uyir Saaru!\n\nI would like to order / inquire about the "${selectedPackage.en}" package (300 ml · ₹${selectedPackage.price} · Day 6 Veg: ${vegLabelEn}).\n\n🌿 *Health Benefits:*\nDrinking these 7 juices every morning before 9:00 AM for 7 weeks reduces acidity & body weight, while maintaining blood pressure and cholesterol at balanced levels with maximum benefits.\n\nPlease share delivery details.`;
-                      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(txt)}`, "_blank");
-                    }}
-                    data-testid="pkg-whatsapp-direct-btn"
-                  >
-                    <FileText size={16} /> {label("WhatsApp மூலம் உடனடியாக விசாரிக்க / ஆர்டர் செய்ய", "Order / Inquire on WhatsApp")}
-                  </button>
-
                   <small className="cod-note" style={{ margin: 0 }}>
                     🔒 {label("நேரடி பணப்பரிவர்த்தனை (100% Cash on Delivery)", "100% Cash on Delivery at your doorstep")}
                   </small>
@@ -1957,7 +1941,7 @@ ${itemRows}
 
           {/* 7. Delivery Windows Section */}
           <section className="delivery-section" id="delivery">
-            <div>
+            <div className="delivery-copy">
               <div className="eyebrow">{label("உங்கள் நேரத்திற்கு டெலிவரி", "FRESHNESS, ON YOUR CLOCK")}</div>
               <h2 className={copy ? "tamil-headline" : ""}>
                 {copy ? (
@@ -1980,30 +1964,43 @@ ${itemRows}
                   "Every order arrives cold, sealed in 300 ml bottles and ready to enjoy. Always Cash on Delivery."
                 )}
               </p>
+
+              <div className="delivery-timing-banner">
+                <Clock3 size={18} className="delivery-timing-icon" />
+                <div className="delivery-timing-info">
+                  <strong>{label("தினசரி ஆர்டர் ஏற்கும் நேரம்", "Daily Order Booking Window")}</strong>
+                  <span>
+                    {label(
+                      "நள்ளிரவு 12:00 AM முதல் இரவு 10:00 PM வரை · இரவு 10:00 PM - 12:00 AM புதிய தயாரிப்புக்காக மூடப்படும்",
+                      "12:00 AM Midnight to 10:00 PM Daily · Closed 10:00 PM – 12:00 AM for fresh dawn prep"
+                    )}
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div className="slots" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(170px, 1fr))" }}>
-              <div>
+            <div className="slots">
+              <div className="slot-card">
                 <Clock3 />
                 <b className={!copy ? "en-slot" : ""}>{label("அதிகாலை புத்துணர்ச்சி", "Early Dawn Slot")}</b>
                 <span>{label("காலை 6:00 – 7:00", "6:00 AM – 7:00 AM")}</span>
               </div>
-              <div>
+              <div className="slot-card">
                 <Clock3 />
                 <b className={!copy ? "en-slot" : ""}>{label("காலை நடைபயிற்சி", "Morning Walk Slot")}</b>
                 <span>{label("காலை 7:00 – 8:00", "7:00 AM – 8:00 AM")}</span>
               </div>
-              <div>
+              <div className="slot-card">
                 <Clock3 />
                 <b className={!copy ? "en-slot" : ""}>{label("காலை உணவு நலம்", "Breakfast Slot")}</b>
                 <span>{label("காலை 8:00 – 9:00", "8:00 AM – 9:00 AM")}</span>
               </div>
-              <div>
+              <div className="slot-card">
                 <Clock3 />
                 <b className={!copy ? "en-slot" : ""}>{label("நண்பகல் புத்துணர்ச்சி", "Mid-Day Refresh Slot")}</b>
                 <span>{label("நண்பகல் 11:00 – 12:00", "11:00 AM – 12:00 PM")}</span>
               </div>
-              <div>
+              <div className="slot-card">
                 <Clock3 />
                 <b className={!copy ? "en-slot" : ""}>{label("மாலை நலம் & எனர்ஜி", "Evening Vitality Slot")}</b>
                 <span>{label("மாலை 4:00 – 6:00", "4:00 PM – 6:00 PM")}</span>
