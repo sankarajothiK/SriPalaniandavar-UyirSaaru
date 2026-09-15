@@ -295,8 +295,8 @@ const packages: PackageItem[] = [
     isRoutinePackage: false,
     icon: "🦋",
     color: "teal",
-    listTa: "நெல்லிக்காய்+வெள்ளரி · கேரட்+ஆரஞ்சு · ஆப்பிள்+புதினா · கொய்யா · மாதுளை · கேரட்+ஆப்பிள் · அன்னாசி+இஞ்சி · இளநீர் · கறிவேப்பிலை+தேன்+எலுமிச்சை · மிக்ஸட் நட்ஸ் ஷேக்",
-    listEn: "Amla+Cucumber · Carrot+Orange · Apple+Mint · Guava · Pomegranate · Carrot+Apple · Pineapple+Ginger · Coconut Water · Karuveppilai+Honey+Lemon · Mixed Nuts Shake",
+    listTa: "நெல்லிக்காய்+வெள்ளரி · கேரட்+ஆரஞ்சு · ஆப்பிள்+புதினா · கொய்யா · மாதுளை · இளநீர் (சிறியது & பெரியது) · கேரட்+ஆப்பிள் · அன்னாசி+இஞ்சி · கறிவேப்பிலை+தேன்+எலுமிச்சை · மிக்ஸட் நட்ஸ் ஷேக்",
+    listEn: "Amla+Cucumber · Carrot+Orange · Apple+Mint · Guava · Pomegranate · Coconut Water (Small & Large) · Carrot+Apple · Pineapple+Ginger · Karuveppilai+Honey+Lemon · Mixed Nuts Shake",
     image: "/images/package2/1.png",
     juices: [
       {
@@ -350,12 +350,22 @@ const packages: PackageItem[] = [
         image: "/images/package2/5.png"
       },
       {
-        id: "tp-coc-wat",
-        juiceTa: "இளநீர்",
-        juiceEn: "Coconut Water",
-        ingredientsTa: "இளநீர்",
-        ingredientsEn: "Coconut Water",
-        price: 120,
+        id: "tp-coc-wat-small",
+        juiceTa: "இளநீர் (சிறியது)",
+        juiceEn: "Coconut Water (Small)",
+        ingredientsTa: "இயற்கை இளநீர் (சிறியது)",
+        ingredientsEn: "Fresh Tender Coconut Water (Small)",
+        price: 60,
+        emoji: "🥥",
+        image: "/images/package2/6.png"
+      },
+      {
+        id: "tp-coc-wat-large",
+        juiceTa: "இளநீர் (பெரியது)",
+        juiceEn: "Coconut Water (Large)",
+        ingredientsTa: "இயற்கை இளநீர் (பெரியது)",
+        ingredientsEn: "Fresh Tender Coconut Water (Large)",
+        price: 100,
         emoji: "🥥",
         image: "/images/package2/6.png"
       },
@@ -796,8 +806,8 @@ const packages: PackageItem[] = [
     isRoutinePackage: false,
     icon: "🍉",
     color: "rose",
-    listTa: "ஆப்பிள் · நாட்டு மாதுளை · சிவப்பு மாதுளை · கிர்ணி · கருப்பு திராட்சை · கொய்யா · ஸ்ட்ராபெரி · பப்பாளி · கிவி · தர்பூசணி · ஆரஞ்சு · அன்னாசி · இளநீர் · மாம்பழம் · நெல்லிக்காய் · சாத்துக்குடி",
-    listEn: "Apple · Naatu Pomegranate · Ruby Pomegranate · Kirni · Black Grapes · Guava · Strawberry · Papaya · Kiwi · Watermelon · Orange · Pineapple · Coconut Water · Mango · Amla · Sathukudi",
+    listTa: "ஆப்பிள் · நாட்டு மாதுளை · சிவப்பு மாதுளை · கிர்ணி · கருப்பு திராட்சை · கொய்யா · ஸ்ட்ராபெரி · பப்பாளி · கிவி · தர்பூசணி · ஆரஞ்சு · அன்னாசி · இளநீர் (சிறியது & பெரியது) · மாம்பழம் · நெல்லிக்காய் · சாத்துக்குடி",
+    listEn: "Apple · Naatu Pomegranate · Ruby Pomegranate · Kirni · Black Grapes · Guava · Strawberry · Papaya · Kiwi · Watermelon · Orange · Pineapple · Coconut Water (Small & Large) · Mango · Amla · Sathukudi",
     image: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?auto=format&fit=crop&w=600&q=80",
     juices: [
       {
@@ -921,12 +931,22 @@ const packages: PackageItem[] = [
         image: "/images/special/fresh-pineapple.jpg"
       },
       {
-        id: "coconut-water",
-        juiceTa: "இயற்கை இளநீர்",
-        juiceEn: "Coconut Water",
-        ingredientsTa: "இளநீர்",
-        ingredientsEn: "Coconut Water",
-        price: 120,
+        id: "coconut-water-small",
+        juiceTa: "இயற்கை இளநீர் (சிறியது)",
+        juiceEn: "Coconut Water (Small)",
+        ingredientsTa: "இயற்கை இளநீர் (சிறியது)",
+        ingredientsEn: "Fresh Tender Coconut Water (Small)",
+        price: 60,
+        emoji: "🥥",
+        image: "/images/fresh/coconut-water.jpg"
+      },
+      {
+        id: "coconut-water-large",
+        juiceTa: "இயற்கை இளநீர் (பெரியது)",
+        juiceEn: "Coconut Water (Large)",
+        ingredientsTa: "இயற்கை இளநீர் (பெரியது)",
+        ingredientsEn: "Fresh Tender Coconut Water (Large)",
+        price: 100,
         emoji: "🥥",
         image: "/images/fresh/coconut-water.jpg"
       },
@@ -1477,11 +1497,14 @@ ${itemRows}
                     </span>
                   </div>
 
-                  <div className="pkg-order-specs">
-                    <div><Check size={16} color="var(--green)" /> {label("7 பாட்டில்கள் · 300 மி.லி ஒவ்வொன்றும்", "7 bottles · 300 ml each")}</div>
-                    <div><Check size={16} color="var(--green)" /> {label("அதிகாலை 5:30 பிரெஷ் தயாரிப்பு", "Pressed dawn fresh 5:30 AM")}</div>
-                    <div><Check size={16} color="var(--green)" /> {label("கோவில்பட்டி முழுவதும் இலவச வாசல் டெலிவரி", "Free doorstep delivery across Kovilpatti")}</div>
-                    <div><Check size={16} color="var(--green)" /> {label("100% தூய இயற்கை பழச்சாறு", "100% Pure Cold-Pressed Juice")}</div>
+                  <div className="pkg-health-benefit-callout">
+                    <span className="pkg-health-benefit-icon">🌿</span>
+                    <p className="pkg-health-benefit-text">
+                      {label(
+                        "தினமும் காலை 9:00 AM-க்கு முன் இந்த 7 ஜூஸ்களை 7 வாரங்கள் குடித்து வந்தால், அசிடிட்டி மற்றும் உடல் எடை குறையும். மேலும் ரத்த அழுத்தம் மற்றும் கொலஸ்ட்ரால் சீராகி அதிகபட்ச ஆரோக்கிய நன்மைகள் கிடைக்கும்.",
+                        "If you drink these 7 juices every morning before 9:00 AM for 7 weeks, acidity and body weight will be reduced, and blood pressure and cholesterol will be maintained at balanced levels with maximum health benefits."
+                      )}
+                    </p>
                   </div>
 
                   <button
@@ -1516,8 +1539,8 @@ ${itemRows}
                       const vegLabelTa = selectedVegOption === "carrot" ? "கேரட்" : selectedVegOption === "beetroot" ? "பீட்ரூட்" : "வெள்ளரி";
                       const vegLabelEn = selectedVegOption === "carrot" ? "Carrot" : selectedVegOption === "beetroot" ? "Beetroot" : "Cucumber";
                       const txt = copy
-                        ? `வணக்கம் ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு!\n\nநான் "${selectedPackage.ta}" தொகுப்பை (300 மி.லி · ₹${selectedPackage.price} · நாள் 6 காய்கறி: ${vegLabelTa}) ஆர்டர் செய்ய விரும்புகிறேன்.\n\nதயவுசெய்து டெலிவரி விவரங்களை அனுப்பவும்.`
-                        : `Hello Sri Palani Andavar Uyir Saaru!\n\nI would like to order the "${selectedPackage.en}" package (300 ml · ₹${selectedPackage.price} · Day 6 Veg: ${vegLabelEn}).\n\nPlease share delivery details.`;
+                        ? `வணக்கம் ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு!\n\nநான் "${selectedPackage.ta}" முழு தொகுப்பை (300 மி.லி · ₹${selectedPackage.price} · நாள் 6 காய்கறி: ${vegLabelTa}) ஆர்டர் / விசாரிக்க விரும்புகிறேன்.\n\n🌿 *ஆரோக்கிய நன்மை குறிப்பு:*\nதினமும் காலை 9:00 AM-க்கு முன் இந்த 7 ஜூஸ்களை 7 வாரங்கள் குடித்து வந்தால், அசிடிட்டி மற்றும் உடல் எடை குறையும். மேலும் ரத்த அழுத்தம் மற்றும் கொலஸ்ட்ரால் சீராகி அதிகபட்ச நன்மைகள் கிடைக்கும்.\n\nதயவுசெய்து டெலிவரி விவரங்களை அனுப்பவும்.`
+                        : `Hello Sri Palani Andavar Uyir Saaru!\n\nI would like to order / inquire about the "${selectedPackage.en}" package (300 ml · ₹${selectedPackage.price} · Day 6 Veg: ${vegLabelEn}).\n\n🌿 *Health Benefits:*\nDrinking these 7 juices every morning before 9:00 AM for 7 weeks reduces acidity & body weight, while maintaining blood pressure and cholesterol at balanced levels with maximum benefits.\n\nPlease share delivery details.`;
                       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(txt)}`, "_blank");
                     }}
                     data-testid="pkg-whatsapp-direct-btn"
@@ -1756,12 +1779,6 @@ ${itemRows}
                   )}
                 </h1>
 
-                <p className={`hero-sub ${copy ? "ta-sub" : ""}`}>
-                  {label(
-                    "இயற்கையின் சுவையில் வாழ்வின் நலம் — தினமும் புதிதாக பிழிந்த 300 மி.லி தூய பழச்சாறு.",
-                    "In nature's taste lies life's wellness — freshly pressed 300 ml pure cold-pressed goodness."
-                  )}
-                </p>
 
                 <p className={`hero-ta ${!copy ? "en-ta" : ""}`}>
                   {label(
@@ -2259,6 +2276,9 @@ ${itemRows}
                       {delivery ? `₹${delivery}` : label("இலவசம்", "FREE")}
                     </b>
                   </div>
+                  <div className="delivery-radius-tag">
+                    <span>📍 {label("சுமார் 4 கி.மீ சுற்றளவில் இலவச டெலிவரி", "Free Delivery within ~4 km radius")}</span>
+                  </div>
                   <div className="total">
                     <span>{label("செலுத்த வேண்டிய தொகை", "Total Amount")}</span>
                     <b>₹{subtotal + delivery}</b>
@@ -2269,11 +2289,11 @@ ${itemRows}
                       <div className="order-closed-badge">
                         <span className="order-closed-icon">🌙</span>
                         <div>
-                          <strong>{label("இரவு 10:00 PM பின் ஆர்டர்கள் மூடப்பட்டுள்ளது", "Orders Closed After 10:00 PM")}</strong>
+                          <strong>{label("இரவு 10:00 PM - 12:00 AM ஆர்டர்கள் மூடப்பட்டுள்ளது", "Orders Closed (10:00 PM – 12:00 AM)")}</strong>
                           <p>
                             {label(
-                              "நாளை அதிகாலை 5:30 புதிய பழச்சாறு தயாரிப்புக்காக இரவு 10:00 மணிக்கு மேல் புதிய ஆர்டர்கள் தற்காலிகமாக மூடப்பட்டுள்ளது. நள்ளிரவு 12:00 AM மணிக்கு மீண்டும் திறக்கப்படும்.",
-                              "Orders are paused after 10:00 PM to prepare tomorrow's 5:30 AM fresh extraction. Bookings reopen at 12:00 AM midnight."
+                              "நாளை அதிகாலை 5:30 புதிய பழச்சாறு தயாரிப்புக்காக இரவு 10:00 PM முதல் 12:00 AM வரை ஆர்டர்கள் தற்காலிகமாக மூடப்பட்டுள்ளது. நள்ளிரவு 12:00 AM மணிக்கு மீண்டும் திறக்கப்படும்.",
+                              "Orders are closed between 10:00 PM and 12:00 AM to prepare dawn fresh batches. Bookings reopen daily at 12:00 AM midnight."
                             )}
                           </p>
                         </div>
@@ -2284,7 +2304,7 @@ ${itemRows}
                         aria-disabled="true"
                         data-testid="closed-checkout-button"
                       >
-                        ⏰ {label("இரவு 10 PM - 12 AM வரை ஆர்டர் பெறப்படாது", "Closed: Reopens at 12:00 AM")}
+                        ⏰ {label("இரவு 10 PM - 12 AM வரை ஆர்டர் பெறப்படாது · நள்ளிரவு 12 AM திறக்கும்", "Closed 10 PM – 12 AM · Reopens at 12:00 AM")}
                       </button>
                     </div>
                   ) : (
