@@ -66,8 +66,8 @@ interface OrderFormData {
   iceOption?: string;
 }
 
-const WHATSAPP_NUMBER = "919342969285";
-const DISPLAY_PHONE = "+91 9342969285";
+const WHATSAPP_NUMBER = "919944665159";
+const DISPLAY_PHONE = "+91 9944665159";
 
 const images = {
   logo: "/assets/logo.jpg",
@@ -1117,7 +1117,7 @@ export function App() {
   const count = cart.reduce((s, x) => s + x.qty, 0);
   const subtotal = cart.reduce((s, x) => s + x.price * x.qty, 0);
   const hasRoutine = cart.some((x) => x.type === "routine");
-  const delivery = !subtotal || hasRoutine || subtotal >= 150 ? 0 : 20;
+  const delivery = 0;
 
   const add = (
     item: { id: string; ta: string; en: string; price: number; emoji?: string; image?: string; benefit?: string },
@@ -1225,7 +1225,7 @@ export function App() {
    🌴 *ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு* 🌴
    _"உடலுக்கு புத்துணர்ச்சி வாழ்வுக்கு ஆரோக்கியம்!"_
    பழைய பேருந்து நிலையம், கோவில்பட்டி
-   📱 வாட்ஸ்அப் / போன்: +91 9342969285
+   📱 வாட்ஸ்அப் / போன்: +91 9944665159
 🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
 
 📋 *அதிகாரப்பூர்வ ஆர்டர் ரசீது*
@@ -1246,8 +1246,8 @@ ${iceLine}
 ${itemRows}
 ───────────────────────────────
 💵 பொருட்கள் மொத்தம்: ₹${subtotal}
-🚚 டெலிவரி கட்டணம்: ${delivery ? `₹${delivery}` : "இலவசம் (FREE)"}
-✨ *செலுத்த வேண்டிய மொத்த தொகை: ₹${subtotal + delivery}*
+🚚 டெலிவரி: இலவசம் (சுமார் 4 கி.மீ)
+✨ *செலுத்த வேண்டிய மொத்த தொகை: ₹${subtotal}*
 ───────────────────────────────
 💳 செலுத்தும் முறை: நேரடி பணம் (Cash on Delivery)
 🛡️ 100% தூய இயற்கை சாறு (100% Pure Natural)
@@ -1259,7 +1259,7 @@ ${itemRows}
    🌴 *SRI PALANI ANDAVAR UYIR SAARU* 🌴
    _"Vitality for the Body, Wellness for Life!"_
    Old Bus Stand, Kovilpatti
-   📱 WhatsApp / Phone: +91 9342969285
+   📱 WhatsApp / Phone: +91 9944665159
 🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
 
 📋 *OFFICIAL ORDER INVOICE*
@@ -1280,8 +1280,8 @@ ${iceLine}
 ${itemRows}
 ───────────────────────────────
 💵 Subtotal: ₹${subtotal}
-🚚 Delivery Fee: ${delivery ? `₹${delivery}` : "FREE"}
-✨ *GRAND TOTAL BILL: ₹${subtotal + delivery}*
+🚚 Delivery: FREE (within ~4 km)
+✨ *GRAND TOTAL BILL: ₹${subtotal}*
 ───────────────────────────────
 💳 Payment Mode: 100% Cash on Delivery
 🛡️ 100% Pure Cold-Pressed Juice
@@ -1327,7 +1327,7 @@ ${itemRows}
       <div className="announcement">
         <span>{label("✦ இயற்கையின் சுவையில் வாழ்வின் நலம்!", "✦ In Nature's Taste Lies Life's Wellness!")}</span>
         <b>{label("ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு", "Sri Palani Andavar Uyir Saaru")}</b>
-        <span>{label("அனைத்து ஜூஸ்களும் 300 மி.லி · இலவச டெலிவரி ₹150 மேல்", "All Juices 300 ml · Free Delivery on ₹150+")}</span>
+        <span>{label("அனைத்து ஜூஸ்களும் 300 மி.லி · சுமார் 4 கி.மீ இலவச டெலிவரி", "All Juices 300 ml · Free Delivery within ~4 km")}</span>
       </div>
 
       {/* 2. Sticky Header with Official Logo */}
@@ -2123,7 +2123,7 @@ ${itemRows}
                 <b>{label("வாட்ஸ்அப் / போன்:", "WhatsApp / Phone:")}</b>
                 <div>
                   <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
-                    +91 9342969285
+                    +91 9944665159
                   </a>
                 </div>
               </div>
@@ -2164,8 +2164,8 @@ ${itemRows}
               <span>{count}</span>
             </div>
             <div className="sticky-cart-price">
-              <b>₹{subtotal + delivery}</b>
-              <small>{label(delivery ? "+ ₹20 டெலிவரி" : "இலவச டெலிவரி", delivery ? "+ ₹20 delivery" : "Free delivery")}</small>
+              <b>₹{subtotal}</b>
+              <small>{label("இலவச டெலிவரி (~4 கி.மீ)", "Free delivery (~4 km)")}</small>
             </div>
           </div>
           <div className="sticky-cart-action-btn">
@@ -2267,18 +2267,12 @@ ${itemRows}
                     <span>{label("மொத்த விலை", "Subtotal")}</span>
                     <b>₹{subtotal}</b>
                   </div>
-                  <div>
-                    <span>{label("டெலிவரி கட்டணம்", "Delivery Fee")}</span>
-                    <b className="free">
-                      {delivery ? `₹${delivery}` : label("இலவசம்", "FREE")}
-                    </b>
-                  </div>
                   <div className="delivery-radius-tag">
                     <span>📍 {label("சுமார் 4 கி.மீ சுற்றளவில் இலவச டெலிவரி", "Free Delivery within ~4 km radius")}</span>
                   </div>
                   <div className="total">
                     <span>{label("செலுத்த வேண்டிய தொகை", "Total Amount")}</span>
-                    <b>₹{subtotal + delivery}</b>
+                    <b>₹{subtotal}</b>
                   </div>
 
                   {isOrdersClosed() ? (
@@ -2628,13 +2622,12 @@ ${itemRows}
                 <span>{label("பொருட்கள் மொத்தம்", "Subtotal")}</span>
                 <b>₹{subtotal}</b>
               </div>
-              <div className="bill-total-row">
-                <span>{label("டெலிவரி கட்டணம்", "Delivery Fee")}</span>
-                <b style={{ color: "var(--green)" }}>{delivery ? `₹${delivery}` : label("இலவசம்", "FREE")}</b>
+              <div className="delivery-radius-tag" style={{ margin: "6px 0" }}>
+                <span>📍 {label("சுமார் 4 கி.மீ சுற்றளவில் இலவச டெலிவரி", "Free Delivery within ~4 km radius")}</span>
               </div>
               <div className="bill-total-row grand">
                 <span>{label("செலுத்த வேண்டிய மொத்த தொகை:", "GRAND TOTAL BILL:")}</span>
-                <b>₹{subtotal + delivery}</b>
+                <b>₹{subtotal}</b>
               </div>
             </div>
 

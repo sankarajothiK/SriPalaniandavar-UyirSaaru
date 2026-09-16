@@ -2,7 +2,7 @@ import { DeliverySlotOption } from '../types';
 
 export const STORE_CONFIG = {
   // Configurable WhatsApp order receiving number
-  whatsappNumber: "919342969285", // Store WhatsApp phone number
+  whatsappNumber: "919944665159", // Store WhatsApp phone number
   
   brandNameTa: "ஸ்ரீ பழனியாண்டவர் பழமுதிர் சோலை",
   brandNameEn: "Sri Palani Andavar Pazhamudir Solai",
@@ -11,7 +11,7 @@ export const STORE_CONFIG = {
   sloganTa: "Fresh • Healthy • Home Delivered",
   sloganEn: "Fresh • Healthy • Home Delivered",
   
-  phoneDisplay: "+91 93429 69285",
+  phoneDisplay: "+91 99446 65159",
   altPhoneDisplay: "+91 94432 11223",
   email: "orders@palaniandavarjuice.com",
   addressTa: "பழைய பேருந்து நிலையம், கோவில்பட்டி, தமிழ்நாடு - 628501",
@@ -23,8 +23,8 @@ export const STORE_CONFIG = {
   deliveryScheduleSummaryTa: "தினசரி 3 நேர டெலிவரி: காலை 6-9 AM • நண்பகல் 11-12 PM • மாலை 4-6 PM",
   deliveryScheduleSummaryEn: "3 Daily Delivery Slots: Morning 6-9 AM • Noon 11-12 PM • Evening 4-6 PM",
   
-  deliveryCharge: 20, // ₹20 standard delivery fee
-  freeDeliveryThreshold: 150, // Free delivery for orders above ₹150 or all weekly/monthly packages
+  deliveryCharge: 0, // Free delivery
+  freeDeliveryThreshold: 0, // Free delivery
   currency: "₹",
 };
 
