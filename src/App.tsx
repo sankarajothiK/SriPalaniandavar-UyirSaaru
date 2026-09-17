@@ -1198,95 +1198,56 @@ export function App() {
 
   // Professional WhatsApp Bill Receipt Formatter (Dynamic Date Label & Sugar Preference)
   const formatWhatsAppBill = (form: OrderFormData) => {
-    const billNo = `SPA-${Date.now().toString().slice(-5)}`;
     const today = new Date().toLocaleDateString('en-GB');
 
-    const itemRows = cart
-      .map(
-        (x, idx) =>
-          `${idx + 1}. ${label(x.ta, x.en)} (${label("300 மி.லி", "300ml")})\n   ${label("எண்ணிக்கை (Qty):", "Qty:")} ${x.qty} x ₹${x.price} = ₹${x.price * x.qty}`
-      )
+    const itemRowsTa = cart
+      .map((x, idx) => `${idx + 1}. ${x.ta} x ${x.qty} = ₹${x.price * x.qty}`)
       .join("\n");
 
-    const dateHeader = hasRoutine
-      ? (copy ? `🚚 தொடக்க தேதி: ${form.date}` : `🚚 Start Date: ${form.date}`)
-      : (copy ? `🚚 டெலிவரி தேதி: ${form.date}` : `🚚 Delivery Date: ${form.date}`);
+    const itemRowsEn = cart
+      .map((x, idx) => `${idx + 1}. ${x.en} x ${x.qty} = ₹${x.price * x.qty}`)
+      .join("\n");
 
-    const sugarLine = copy
-      ? (form.sugarOption === "sugar-needed" ? "🍬 சர்க்கரை விருப்பம்: சர்க்கரை தேவை (With Sugar)" : "🍃 சர்க்கரை விருப்பம்: சர்க்கரை தேவையில்லை (இயற்கை சுவை)")
-      : (form.sugarOption === "sugar-needed" ? "🍬 Sugar Option: Sugar Needed (With Sugar)" : "🍃 Sugar Option: No Added Sugar (Pure Natural)");
-
-    const iceLine = copy
-      ? (form.iceOption === "ice-needed" ? "❄️ ஐஸ் விருப்பம்: ஐஸ் தேவை (With Ice)" : "🧊 ஐஸ் விருப்பம்: ஐஸ் தேவையில்லை (No Ice)")
-      : (form.iceOption === "ice-needed" ? "❄️ Ice Option: Ice Needed (With Ice)" : "🧊 Ice Option: No Ice (Natural Room Temp)");
+    const sugarInfoTa = form.sugarOption === "sugar-needed" ? "சர்க்கரை: தேவை" : "சர்க்கரை: இல்லை";
+    const sugarInfoEn = form.sugarOption === "sugar-needed" ? "Sugar: Yes" : "Sugar: No";
+    const iceInfoTa = form.iceOption === "ice-needed" ? "ஐஸ்: தேவை" : "ஐஸ்: இல்லை";
+    const iceInfoEn = form.iceOption === "ice-needed" ? "Ice: Yes" : "Ice: No";
 
     if (copy) {
-      return `🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
-   🌴 *ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு* 🌴
-   _"உடலுக்கு புத்துணர்ச்சி வாழ்வுக்கு ஆரோக்கியம்!"_
-   பழைய பேருந்து நிலையம், கோவில்பட்டி
-   📱 வாட்ஸ்அப் / போன்: +91 9944665159
-🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
+      return `🌿 *ஸ்ரீ பழனி ஆண்டவர் உயிர்ச்சாறு* 🌿
 
-📋 *அதிகாரப்பூர்வ ஆர்டர் ரசீது*
-🆔 ரசீது எண்: #${billNo}
-📅 பில் தேதி: ${today}
-⏰ டெலிவரி நேரம்: ${form.slot}
-${dateHeader}
-${sugarLine}
-${iceLine}
+📅 *ஆர்டர் தேதி:* ${today}
+🚚 *${hasRoutine ? "தொடக்க தேதி" : "டெலிவரி தேதி"}:* ${form.date}
+⏰ *டெலிவரி நேரம்:* ${form.slot}
 
-👤 *வாடிக்கையாளர் விவரங்கள்*
-• பெயர்: ${form.name}
-• தொலைபேசி: ${form.phone}
-• டெலிவரி முகவரி: ${form.address}
+👤 *வாடிக்கையாளர்:* ${form.name} (${form.phone})
+📍 *முகவரி:* ${form.address}
 
-🛒 *பொருட்கள் விவரம் (300 மி.லி)*
-───────────────────────────────
-${itemRows}
-───────────────────────────────
-💵 பொருட்கள் மொத்தம்: ₹${subtotal}
-🚚 டெலிவரி: இலவசம் (சுமார் 4 கி.மீ)
-✨ *செலுத்த வேண்டிய மொத்த தொகை: ₹${subtotal}*
-───────────────────────────────
-💳 செலுத்தும் முறை: நேரடி பணம் (Cash on Delivery)
-🛡️ 100% தூய இயற்கை சாறு (100% Pure Natural)
-🙏 மிக்க நன்றி! உங்கள் நல்வாழ்வே எங்கள் அர்ப்பணிப்பு!
-🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾`;
+🛒 *ஆர்டர் விவரங்கள்:*
+${itemRowsTa}
+(${sugarInfoTa} | ${iceInfoTa})
+
+💰 *மொத்த தொகை:* ₹${subtotal} (நேரடி பணம் / COD)
+
+🙏 நன்றி!`;
     }
 
-    return `🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
-   🌴 *SRI PALANI ANDAVAR UYIR SAARU* 🌴
-   _"Vitality for the Body, Wellness for Life!"_
-   Old Bus Stand, Kovilpatti
-   📱 WhatsApp / Phone: +91 9944665159
-🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾
+    return `🌿 *Sri Palani Andavar Uyir Saaru* 🌿
 
-📋 *OFFICIAL ORDER INVOICE*
-🆔 Bill No: #${billNo}
-📅 Date: ${today}
-⏰ Delivery Slot: ${form.slot}
-${dateHeader}
-${sugarLine}
-${iceLine}
+📅 *Order Date:* ${today}
+🚚 *${hasRoutine ? "Start Date" : "Delivery Date"}:* ${form.date}
+⏰ *Delivery Slot:* ${form.slot}
 
-👤 *CUSTOMER DETAILS*
-• Name: ${form.name}
-• Phone: ${form.phone}
-• Delivery Address: ${form.address}
+👤 *Customer:* ${form.name} (${form.phone})
+📍 *Address:* ${form.address}
 
-🛒 *ORDERED ITEMS (300 ml each)*
-───────────────────────────────
-${itemRows}
-───────────────────────────────
-💵 Subtotal: ₹${subtotal}
-🚚 Delivery: FREE (within ~4 km)
-✨ *GRAND TOTAL BILL: ₹${subtotal}*
-───────────────────────────────
-💳 Payment Mode: 100% Cash on Delivery
-🛡️ 100% Pure Cold-Pressed Juice
-🙏 Thank you! Your wellness is our devotion!
-🧾━━━━━━━━━━━━━━━━━━━━━━━━━━━━━🧾`;
+🛒 *Order Details:*
+${itemRowsEn}
+(${sugarInfoEn} | ${iceInfoEn})
+
+💰 *Total Amount:* ₹${subtotal} (Cash on Delivery)
+
+🙏 Thank You!`;
   };
 
   const isOrdersClosed = (): boolean => {
